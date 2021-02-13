@@ -1,0 +1,374 @@
+import tkinter 
+from tkinter import *
+import math
+import pygame
+
+
+pygame.mixer.init()
+#Making of window
+
+wn = tkinter.Tk()
+wn.geometry("330x500+350+350")
+wn.title('calculator')
+wn.iconbitmap("C:/Users/admin/Downloads/shutterstock_1386882278-1.jpg")
+
+
+
+"______________________________________________________________________________________"
+
+
+#functions
+expression = ""
+
+def add(vary):
+    global expression
+    expression += vary
+    label.config(text=expression)
+
+def calculate():
+    
+    global expression
+    result = ""
+    if expression != "":
+
+        try:
+            result = eval(expression)
+        except:
+            result = ""
+            expression = ""
+    label.config(text=result)
+    expression = str(result)
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\=soundup.wav")
+    pygame.mixer.music.play(loops=0)
+
+def clearance():
+    global expression
+    expression = ""
+    label.config(text=expression)
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\cle4rwavewav.wav")
+    pygame.mixer.music.play(loops=0)
+
+
+def square():
+    global expression
+    C = float(eval(expression))**2
+    label.config(text=C)
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def squarroot():
+    global expression
+    C = math.sqrt(float(eval(expression)))
+    label.config(text=C)
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+"_________________________________________________________________________________________________________________________________"
+
+
+def one():
+    add("1")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def two():
+    add("2")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def three():
+    add("3")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def four():
+    add("4")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def five():
+    add("5")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def six():
+    add("6")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def seven():
+    add("7")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def eight():
+    add("8")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def nine():
+    add("9")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+def zero():
+    add("0")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def plus():
+    add("+")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\gun_reloadup.wav")
+    pygame.mixer.music.play(loops=0)
+
+
+def minus():
+    add("-")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\gun_reloadup.wav")
+    pygame.mixer.music.play(loops=0)
+
+
+def divi():
+    add("/")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\gun_reloadup.wav")
+    pygame.mixer.music.play(loops=0)
+
+
+def multi():
+    add("*")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\gun_reloadup.wav")
+    pygame.mixer.music.play(loops=0)
+
+
+
+
+def dot():
+    add(".")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def onebyx():
+    global expression
+    C = 1 / float(expression)
+    label.config(text=C)
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def pi():
+    add("+3.14")
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+def factorial():
+    global expression
+    C = math.factorial(expression)
+    label.config(text=C)
+    pygame.mixer.music.load("C:\\Users\\admin\\Downloads\\buttons20.mp3")
+    pygame.mixer.music.play(loops=0)
+
+
+
+
+
+
+"_____________________________________________________________________________________________________"
+
+
+#MAKING OF THE LABEL
+
+
+
+label = Label(wn,text = "0", font =('Verdana', 30,'bold','italic'), anchor = SW , fg = "#000000", width=12, height=1)
+label.pack(expand=True,fill=X)
+
+
+
+"________________________________________________________________________________________________"
+
+
+#making of the frames:
+
+#   ROW 1
+
+
+row1 = Frame(wn,bg='#000000')
+row1.pack(expand = True, fill = "both")
+
+
+
+#   ROW 2
+
+
+row2 = Frame(wn)
+row2.pack(expand = True, fill = "both")
+
+#   ROW 3
+
+row3 = Frame(wn)
+row3.pack(expand = True, fill = "both")
+
+
+#   ROW 4 
+
+row4 = Frame(wn)
+row4.pack(expand = True, fill = "both")
+
+#   ROW 5
+
+row5 = Frame(wn)
+row5.pack(expand = True, fill = "both")
+
+#ROW 6
+row6 = Frame(wn)
+row6.pack(expand = True, fill = "both")
+
+
+
+
+"_________________________________________________________________________________________________________________"
+
+#Buttons:
+#   ROW 2 
+
+btn1 = Button(row2,text="x\u00b2",font = ("Verdana",20,'bold','italic'), relief = GROOVE,command=square, border = 0,activebackground = "#FFA500")
+btn1.pack(side = LEFT,expand = True, fill = "both")
+
+
+
+btn2 = Button(row2,text="√",font = ("Verdana",25,'bold','italic'),relief = RIDGE, border = 0, command = squarroot,activebackground = "#FFA500")
+btn2.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn3 = Button(row2,text="1/x",font = ("Verdana",20,'bold','italic'),relief = RIDGE, border = 0, command = onebyx, activebackground = "#FFA500")
+btn3.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn4 = Button(row2,text="÷",font = ("Verdana",25,'bold','italic'),relief = GROOVE,command=divi, border = 0 , activebackground = "#FFA500")
+btn4.pack(side = LEFT,expand = True, fill = "both")
+
+
+#   ROW 3
+
+
+
+btn1 = Button(row3,text="1",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0,command = one, activebackground = "#D3D3D3")
+btn1.pack(side = LEFT,expand = True, fill = "both")
+
+
+
+btn2 = Button(row3,text="2",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0,command = two,  activebackground = "#D3D3D3")
+btn2.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn3 = Button(row3,text="3",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0 ,command = three, activebackground = "#D3D3D3")
+btn3.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn4 = Button(row3,text="×",font = ("Verdana",25,'bold','italic'),relief = GROOVE, border = 0 ,command = multi,activebackground = "#FFA500")
+btn4.pack(side = LEFT,expand = True, fill = "both")
+
+
+
+#   ROW 4
+
+
+
+btn1 = Button(row4,text="4",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0 ,command = four, activebackground = "#D3D3D3")
+btn1.pack(side = LEFT,expand = True, fill = "both")
+
+
+
+btn2 = Button(row4,text="5",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0 ,command = five, activebackground = "#D3D3D3")
+btn2.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn3 = Button(row4,text="6",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0  ,command = six, activebackground = "#D3D3D3")
+btn3.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn4 = Button(row4,text="+",font = ("Verdana",25,'bold','italic'),relief = GROOVE, border = 0, command = plus ,activebackground = "#FFA500")
+btn4.pack(side = LEFT,expand = True, fill = "both")
+
+
+#   ROW 5
+
+
+
+btn1 = Button(row5,text="7",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0 ,command = seven, activebackground = "#D3D3D3")
+btn1.pack(side = LEFT,expand = True, fill = "both")
+
+
+
+btn2 = Button(row5,text="8",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0 , command = eight,activebackground = "#D3D3D3")
+btn2.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn3 = Button(row5,text="9",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0, command = nine, activebackground = "#D3D3D3")
+btn3.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn4 = Button(row5,text="- ",font = ("Verdana",25,'bold','italic'),relief = GROOVE, border = 0, command = minus,  activebackground = "#FFA500")
+btn4.pack(side = LEFT,expand = True, fill = "both")
+
+#   ROW 6
+
+
+btn1 = Button(row6,text="C",font = ("Verdana",25,'bold','italic'),relief = GROOVE, border = 0, command = clearance, activebackground = "#FFD700")
+btn1.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn2 = Button(row6,text="0",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0, command = zero,  activebackground = "#D3D3D3")
+btn2.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn3 = Button(row6,text=".",font = ("Verdana",25,'bold','italic'),relief = GROOVE, border = 0, command = dot , activebackground = "#FFA500")
+btn3.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn4 = Button(row6,text="=",font = ("Verdana",25,'bold','italic'),relief = GROOVE, border = 0,command = lambda : calculate(), activebackground = "#0000FF")
+btn4.pack(side = LEFT,expand = True, fill = "both")
+
+
+#   ROW 1
+
+
+btn1 = Button(row1,text="(",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0, command = lambda: add("(") , activebackground = "#D3D3D3")
+btn1.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn2 = Button(row1,text=")",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0, command = lambda: add(")") , activebackground = "#FFA500")
+btn2.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn3 = Button(row1,text="n!",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0, command = factorial , activebackground = "#FFA500")
+btn3.pack(side = LEFT,expand = True, fill = "both")
+
+
+btn4 = Button(row1,text="𝛑",font = ("Verdana",25,'bold'),relief = GROOVE, border = 0, command = pi , activebackground = "#FFA500")
+btn4.pack(side = LEFT,expand = True, fill = "both")
+
+
+
+
+
+"___________________________________________________________________________________________________________________"
+
+
+
+
+
+
+wn.mainloop()
+'------------------------------------------------------------------------------'
