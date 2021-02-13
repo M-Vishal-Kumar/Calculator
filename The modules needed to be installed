@@ -1,0 +1,4 @@
+pygame
+math
+tkinter
+(plus an additional line: from tkinter import * )
